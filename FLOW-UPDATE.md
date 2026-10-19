@@ -82,3 +82,13 @@ The extra Search this list forms above monitoring tables have been removed at th
 - Removed SPELS/COE monitoring and releasing tabs. The Go to dropdown changes the selected tracker; the sidebar Monitoring link, Receiving Queue, Releasing, and Back to monitoring links all remain within that selected tracker. SPELS and COE records and status options are loaded from their respective tables/databases.
 
 Validation: 16 monitoring/releasing/reporting tests and four existing UI tests passed using temporary databases. Browser checks verified combined filters, matching counts, filter retention on page 2, mobile layout, releasing filters and reset, and repeated SPELS/COE switching through Go to. Original project databases remained unchanged.
+
+
+## Pending terminology — latest addition
+
+- The displayed action label is now Pending, replacing Pending resolution.
+- First Verifier, Second Verifier, and admin pending-status selectors have exactly two selectable choices: For COPI and With Compliance. The disabled prompt is not a selectable status, and no hold is chosen automatically on an empty form.
+- Related status labels in forms, monitoring filters, transaction lists, badges, verification summaries, FO details, and validation messages are consistent.
+- This is a presentation update: the existing saved value For Compliance continues to represent the displayed With Compliance label, retaining compatibility with existing records, validation, office returns, and COPI pause rules. COPI pause tracking continues to depend only on the existing For COPI tag. No database migration or account change is included.
+
+The 16 monitoring/releasing/reporting tests and four existing UI tests passed. Browser validation exercised both verifier stages in SPELS and COE, the two selectable choices, saving each pending status, and the admin compliance dialog. Original database files remained unchanged.

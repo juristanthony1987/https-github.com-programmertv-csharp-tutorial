@@ -1,6 +1,6 @@
 # eTracker updates
 
-## Latest: monitoring filters and separate tracker navigation
+## Latest: Pending labels and two pending-status choices
 
 PostgreSQL migration remains ON HOLD. This update is for the existing SQLite eTracker.
 
@@ -9,6 +9,8 @@ PostgreSQL migration remains ON HOLD. This update is for the existing SQLite eTr
 Alternatively choose **Code > Download ZIP**, extract that archive, then extract the inner **etracker-monitoring-update.zip**.
 
 ### Current changes
+
+- Pending replaces Pending resolution throughout the interface. Pending-status selectors offer exactly two selectable choices: For COPI and With Compliance. Related forms, summaries, badges, filters, and validation messages use the same labels.
 
 - Processing Status and Office filters work together with the report period and search. Apply Filters replaces Update monitoring. Filtered counts and records stay consistent, and filters remain active across cards and pagination. Releasing shows the same status/office filters alongside its search.
 - SPELS and COE use the Go to dropdown as the system switch. Cross-system monitoring/releasing tabs are removed, and the sidebar follows the selected tracker. Each dashboard, queue, release view, and record list uses only that system's records.
