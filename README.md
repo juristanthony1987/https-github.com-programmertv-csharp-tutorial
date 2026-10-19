@@ -34,3 +34,11 @@ Packages contain source and instructions only, not databases, account password v
 - etracker-flow-update.zip: previous SQLite flow update.
 - etracker-ui-update.zip: earlier UI update.
 - etracker-postgresql-update.zip: saved PostgreSQL package, currently deferred.
+
+## AJVTB account recovery
+
+[Download etracker-ajvtb-reset.zip](https://github.com/juristanthony1987/https-github.com-programmertv-csharp-tutorial/raw/refs/heads/main/etracker-ajvtb-reset.zip)
+
+Stop eTracker, copy the two reset tools beside app.py and the active etracker.db, then run RESET-AJVTB.bat. Choose your own new password using the hidden prompts. A local database backup is created before updating only the existing AJVTB sign-in password. See [account-recovery/README.md](account-recovery/README.md). The separate Chief approval password is unchanged.
+
+Recovery validation: five temporary-database tests passed, and the actual Flask login accepted the new password while rejecting the old one. No office-PC password has been changed by the cloud environment. The download contains tools and instructions, without any database or password.
