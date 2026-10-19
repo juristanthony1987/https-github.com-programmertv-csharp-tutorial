@@ -11,7 +11,6 @@ Alternatively choose **Code > Download ZIP**, extract that archive, then extract
 ### Current changes
 
 - Releasing opens its own focused view with Ready for Release, Released to Client, and a dedicated search bar for reference numbers, applicant names, or offices. Search is preserved across release queues and pages.
-- Every monitoring card list has Search this list directly above its table, retaining the selected list and report period.
 - SPELS Monitoring alerts edbermelad about pending applications at 15–20 working days (amber) and beyond 20 working days (red). Active COPI pauses are excluded; recorded hold days are deducted after resuming. The alert opens the affected records and uses current pending records across receipt years.
 
 - Received Applications replaces New Applications.
