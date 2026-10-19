@@ -72,3 +72,13 @@ Validation now includes 12 monitoring/releasing/reporting regressions plus four 
 Validation: 14 monitoring/releasing/reporting tests and four existing UI tests passed on temporary databases. Browser checks covered the alert link, release-only view, search, filtered pagination, mobile layout, an actual release form submission, and COE releasing. Original database checksums remained unchanged.
 
 The extra Search this list forms above monitoring tables have been removed at the user's request. Use the main monitoring search or the dedicated Releasing search.
+
+
+## Processing status, office, and tracker selection — latest addition
+
+- Added Processing Status and Office dropdown filters to the main monitoring and releasing filter bars. Status uses the saved processing action/status shown in the table; Office uses the application's Office / Source. Choose All statuses and All offices to remove those restrictions. Blank saved actions can be found using No action recorded.
+- Apply Filters replaces Update monitoring. The status and office selections combine with search and the report period and update both summary counts and record lists. Selections remain active across card drilldowns, release summaries, and numbered pages. New filter submissions return to page 1; Clear filters removes the current selections. Release queues still span all receipt years, with the status and office selections visible beside their search.
+- Current pending-action alerts also follow the search, status, and office filters while remaining independent of report-period filters.
+- Removed SPELS/COE monitoring and releasing tabs. The Go to dropdown changes the selected tracker; the sidebar Monitoring link, Receiving Queue, Releasing, and Back to monitoring links all remain within that selected tracker. SPELS and COE records and status options are loaded from their respective tables/databases.
+
+Validation: 16 monitoring/releasing/reporting tests and four existing UI tests passed using temporary databases. Browser checks verified combined filters, matching counts, filter retention on page 2, mobile layout, releasing filters and reset, and repeated SPELS/COE switching through Go to. Original project databases remained unchanged.
