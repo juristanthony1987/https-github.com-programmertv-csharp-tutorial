@@ -43,3 +43,19 @@ python -m unittest test_receiver_monitoring -v
 ```
 
 Four existing UI regressions and nine receiving/monitoring/releasing regressions passed using temporary databases. Desktop and mobile browser checks passed, including a real form release on synthetic data. The new dashboards and queues also rendered with development copies of existing records. Original database checksums remained unchanged. Actual office-PC installation has not been performed by the cloud environment.
+
+
+## Monitoring and admin refinements — latest update
+
+- The admin receipt card now reads Received Applications, not New Applications.
+- SPELS Monitoring now shows Carried Pending, Received Applications, Pending Applications, Acted within 20 working days, Acted beyond 20 working days, and Total Acted Applications. Pending totals include unresolved Received and On Process applications, not only explicit Pending/COPI/Compliance statuses. Nonzero pending counts have a red card, badge, and highlighted record rows.
+- Admin reports and SPELS Monitoring share the same receipt/action-period classification and working-day calculator. Working days are inclusive, exclude recorded holidays and COPI holds, and retain Chief adjustments. Exactly 20 working days is within; 21 is beyond. HGE batches use their quantities.
+- Report filters use application Date Received for receipts, action date for acted activity, and the period cutoff for unresolved applications. Thus an older receipt acted on during the selected month is included. The report defaults to the current year. Choosing a month with All years uses the current year. All years without a month is cumulative.
+- Monitoring is limited to applications recorded as received at RO. Historical aggregate balances without individual RO-receipt records remain visible in the admin report, with a notice in monitoring. This is a scope difference, not a second working-day formula.
+- Ready for Release and Released to Client remain separate LIVE queues across receipt years, using the search filter. They do not replace performance counts or lose older applications when a report month is selected.
+- COE remains available from the Go to dropdown; the duplicate COE Monitoring sidebar link is removed. COE retains its existing status-based monitoring and release workflow. This update does not introduce a new COE 20-day counting policy.
+- Receiving queue is blue; Releasing is teal.
+- Admin Transactions and dashboard record lists include Received by, Processing Status, Verification Stage, and Client Release. Verification progress is displayed separately from the processing action.
+- Record pagination now has Previous/Next, numbered pages, an active page, disabled boundary controls, and displayed record ranges. Search and report filters are preserved on page changes.
+
+Validation now includes 12 monitoring/releasing/reporting regressions plus four existing UI regressions. Browser checks covered both receiver and admin Next/Previous navigation, filter retention, mobile layouts, pending highlights, and the two action-button colors. Existing-record copies rendered successfully; original database files were unchanged.

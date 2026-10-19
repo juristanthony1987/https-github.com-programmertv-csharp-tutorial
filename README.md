@@ -1,29 +1,33 @@
 # eTracker updates
 
-## Current update: SQLite flow, monitoring, and releasing
+## Latest: monitoring, admin tables, and pagination
 
-PostgreSQL migration is ON HOLD. This update targets the current SQLite eTracker.
+PostgreSQL migration remains ON HOLD. This update is for the existing SQLite eTracker.
 
-[Download etracker-flow-update.zip](https://github.com/juristanthony1987/https-github.com-programmertv-csharp-tutorial/raw/refs/heads/main/etracker-flow-update.zip)
+[Download etracker-monitoring-update.zip](https://github.com/juristanthony1987/https-github.com-programmertv-csharp-tutorial/raw/refs/heads/main/etracker-monitoring-update.zip)
 
-Alternatively select **Code > Download ZIP**, extract that archive, then extract the inner **etracker-flow-update.zip**. Use this new flow ZIP rather than the older UI-only or PostgreSQL packages.
+Alternatively choose **Code > Download ZIP**, extract that archive, then extract the inner **etracker-monitoring-update.zip**.
 
-Changes requested:
+### Current changes
 
-1. Remove Switch Workspace from the sidebar.
-2. Use Acted and Total Acted Applications across application monitoring and reports.
-3. Use Acted and release in the workflow guide.
-4. Give `edbermelad` separate SPELS and COE monitoring dashboards for ALL RO-received records, plus an audited client release screen. Records received by other staff are included. Other receiver/verifier accounts retain their current permissions.
+- Received Applications replaces New Applications.
+- SPELS Monitoring shows carried pending, received, pending, acted within/beyond 20 working days, and Total Acted Applications. Pending includes unresolved awaiting/in-progress applications and has a red indicator.
+- Admin and SPELS Monitoring share report-period and working-day calculations, including recorded holidays, COPI holds, Chief adjustments, and HGE quantities.
+- Receiving queue is blue and Releasing is teal. The redundant COE Monitoring sidebar link is removed; COE remains in Go to. COE retains its existing status-based monitoring.
+- Admin transaction and dashboard record tables show Received by, Processing Status, Verification Stage, and Client Release.
+- Pagination has numbered pages, Previous/Next controls, an active-page highlight, record ranges, and preserved filters.
+- Earlier receiving/releasing permissions and audit history remain included.
 
-Stop eTracker and back up the ENTIRE existing project, including BOTH SQLite databases, before replacing included source files. Keep your existing databases, Python environment, and secret settings. Restart your normal SQLite app and refresh the browser. No PostgreSQL migration is needed.
+Stop eTracker and back up the ENTIRE existing project, including BOTH databases, before replacing included files. Extract the inner update ZIP into the existing project beside app.py, replace ALL included files together, keep your databases and secret settings, restart using the normal SQLite command, then refresh with Ctrl+F5.
 
-Read [FLOW-UPDATE.md](FLOW-UPDATE.md) for installation, release rules, and validation details.
+See [FLOW-UPDATE.md](FLOW-UPDATE.md) for exact report scope, release behavior, installation, and validation details.
 
-Validation: nine receiving/monitoring/releasing regression tests and four existing UI regression tests passed using temporary databases. Desktop and mobile browser checks passed, including actual release-form submission on synthetic data. Existing-record copies rendered correctly. Original database checksums stayed unchanged.
+Validation: twelve monitoring/releasing/reporting regression tests and four existing UI tests passed using temporary databases. Browser checks covered receiver/admin page navigation, filter retention, mobile layouts, pending highlighting, and button colors. Existing-record copies rendered correctly; original database checksums remained unchanged. Actual office-PC installation is still performed by the user.
 
-No databases, account password values, record exports, or credentials are published in these packages. They are updates, not a complete application.
+Packages contain source and instructions only, not databases, account password values, or record exports.
 
 ## Earlier packages
 
-- `etracker-ui-update.zip`: earlier SQLite UI update.
-- `etracker-postgresql-update.zip`: saved PostgreSQL migration package, currently deferred.
+- etracker-flow-update.zip: previous SQLite flow update.
+- etracker-ui-update.zip: earlier UI update.
+- etracker-postgresql-update.zip: saved PostgreSQL package, currently deferred.
