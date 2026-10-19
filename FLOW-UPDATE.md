@@ -13,7 +13,7 @@ For the current SQLite eTracker installation. PostgreSQL migration remains on ho
 
 1. Stop eTracker with Ctrl+C in its terminal.
 2. Back up the ENTIRE existing project, including both `etracker.db` and `coe.db`.
-3. Extract `etracker-flow-update.zip` into the existing project folder beside `app.py`. Replace ALL included source and template files together.
+3. Extract the latest `etracker-monitoring-update.zip` into the existing project folder beside `app.py`. Replace ALL included source and template files together.
 4. Keep both existing databases, your virtual environment, and existing secret settings.
 5. Restart with your current SQLite startup command and refresh the browser with Ctrl+F5. Sign out and back in as `edbermelad`.
 
@@ -59,3 +59,14 @@ Four existing UI regressions and nine receiving/monitoring/releasing regressions
 - Record pagination now has Previous/Next, numbered pages, an active page, disabled boundary controls, and displayed record ranges. Search and report filters are preserved on page changes.
 
 Validation now includes 12 monitoring/releasing/reporting regressions plus four existing UI regressions. Browser checks covered both receiver and admin Next/Previous navigation, filter retention, mobile layouts, pending highlights, and the two action-button colors. Existing-record copies rendered successfully; original database files were unchanged.
+
+
+## Focused releasing and pending-action alerts — latest addition
+
+- Selecting Releasing or either release summary card opens a focused release view for SPELS or COE. It shows only the release summaries and the selected release list, with a dedicated Search applications bar. The performance cards, report-period controls, and pending alerts are omitted from this view.
+- Every monitoring card list also has a Search this list bar directly above its table, including acted-within/beyond, pending, received, carried pending, total acted, and the alert list. It retains the selected view and period and restarts at page 1. Search accepts reference numbers, applicant names, or offices. Search remains active when switching between Ready for Release and Released to Client or changing pages. Clear search resets the query while retaining the selected release queue. Releasing includes all RO receipt years, independently of monitoring-period filters.
+- The release detail page returns to Releasing. After confirming a release, the Released to Client queue opens.
+- SPELS Monitoring for edbermelad now shows a current pending-action alert when an unresolved, unpaused application reaches 15 counted working days. Amber indicates 15–20 working days; the bar turns red if any matching application exceeds 20 working days. View applications opens the matching records, oldest counted age first. HGE quantities count applications.
+- Alerts use current pending records across all RO receipt years, independently of the selected report period. The monitoring search still applies. Active recorded COPI pauses are excluded. Resumed records become eligible again based on working days after deducting recorded COPI hold days, weekends, and holidays. No new COE deadline policy is introduced.
+
+Validation: 14 monitoring/releasing/reporting tests and four existing UI tests passed on temporary databases. Browser checks covered the alert link, release-only view, search, filtered pagination, mobile layout, an actual release form submission, and COE releasing. Original database checksums remained unchanged.
