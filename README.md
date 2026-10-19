@@ -1,23 +1,29 @@
 # eTracker updates
 
-## Latest: PostgreSQL for an office PC
+## Current update: SQLite flow, monitoring, and releasing
 
-[Download the PostgreSQL update ZIP](https://github.com/juristanthony1987/https-github.com-programmertv-csharp-tutorial/raw/refs/heads/main/etracker-postgresql-update.zip)
+PostgreSQL migration is ON HOLD. This update targets the current SQLite eTracker.
 
-Alternatively select **Code > Download ZIP**, extract it, then open the inner **etracker-postgresql-update.zip**.
+[Download etracker-flow-update.zip](https://github.com/juristanthony1987/https-github.com-programmertv-csharp-tutorial/raw/refs/heads/main/etracker-flow-update.zip)
 
-This is an update for the existing project supplied as `etracker2026(New).zip`, not a complete application. It includes the shared UI update plus PostgreSQL support, a read-only SQLite-to-PostgreSQL migration, Windows launcher, and regression tests.
+Alternatively select **Code > Download ZIP**, extract that archive, then extract the inner **etracker-flow-update.zip**. Use this new flow ZIP rather than the older UI-only or PostgreSQL packages.
 
-1. Stop the application and back up the entire current project, including BOTH SQLite databases.
-2. Extract the inner update ZIP into the existing project folder.
-3. Read **START-HERE-POSTGRESQL.txt** and **POSTGRESQL-SETUP.md** before proceeding.
-4. Install PostgreSQL on the central office PC and create the dedicated app role/database.
-5. Install requirements, migrate, check, then start using the PostgreSQL launcher.
+Changes requested:
 
-The update does not migrate your PC automatically. Existing accounts are retained during migration. No databases, record exports, backups, or credentials are included here.
+1. Remove Switch Workspace from the sidebar.
+2. Use Acted and Total Acted Applications across application monitoring and reports.
+3. Use Acted and release in the workflow guide.
+4. Give `edbermelad` separate SPELS and COE monitoring dashboards for ALL RO-received records, plus an audited client release screen. Records received by other staff are included. Other receiver/verifier accounts retain their current permissions.
 
-Validation: nine real-PostgreSQL integration tests and four SQLite regression tests passed. Tested ten concurrent SPELS saves and ten concurrent COE saves, unique references, office scope/guards, stale-edit rejection, review resolution, COPI/date triggers, rollback, and refusal of nonempty migration targets. Existing SQLite data was verified across all imported fields in the test environment; PostgreSQL backup/restore was also checked. Validate the actual office deployment before staff use it.
+Stop eTracker and back up the ENTIRE existing project, including BOTH SQLite databases, before replacing included source files. Keep your existing databases, Python environment, and secret settings. Restart your normal SQLite app and refresh the browser. No PostgreSQL migration is needed.
 
-## Previous SQLite UI update
+Read [FLOW-UPDATE.md](FLOW-UPDATE.md) for installation, release rules, and validation details.
 
-`etracker-ui-update.zip` is the earlier UI-only update. Its instructions are in `UI-UPDATE.md` inside that ZIP. For the latest PostgreSQL update, use the file named **etracker-postgresql-update.zip** above.
+Validation: nine receiving/monitoring/releasing regression tests and four existing UI regression tests passed using temporary databases. Desktop and mobile browser checks passed, including actual release-form submission on synthetic data. Existing-record copies rendered correctly. Original database checksums stayed unchanged.
+
+No databases, account password values, record exports, or credentials are published in these packages. They are updates, not a complete application.
+
+## Earlier packages
+
+- `etracker-ui-update.zip`: earlier SQLite UI update.
+- `etracker-postgresql-update.zip`: saved PostgreSQL migration package, currently deferred.
